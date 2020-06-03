@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/components/index.tsx");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/client/index.tsx");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -218,27 +218,27 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 
 /***/ }),
 
-/***/ "./src/components/App.tsx":
-/*!********************************!*\
-  !*** ./src/components/App.tsx ***!
-  \********************************/
+/***/ "./src/client/App.tsx":
+/*!****************************!*\
+  !*** ./src/client/App.tsx ***!
+  \****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.App = void 0;\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n;\nexports.App = (props) => (React.createElement(\"h1\", null,\n    props.setup,\n    React.createElement(\"br\", null),\n    props.delivery));\n\n\n//# sourceURL=webpack:///./src/components/App.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.App = void 0;\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n;\nexports.App = (props) => (React.createElement(\"h1\", null,\n    props.setup,\n    React.createElement(\"br\", null),\n    props.delivery));\n\n\n//# sourceURL=webpack:///./src/client/App.tsx?");
 
 /***/ }),
 
-/***/ "./src/components/index.tsx":
-/*!**********************************!*\
-  !*** ./src/components/index.tsx ***!
-  \**********************************/
+/***/ "./src/client/index.tsx":
+/*!******************************!*\
+  !*** ./src/client/index.tsx ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_dom_1 = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n// import { Provider } from 'react-redux';\nconst App_1 = __webpack_require__(/*! ./App */ \"./src/components/App.tsx\");\n// import store from './store';\nconst url = 'https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist&type=twopart';\nfetch(url)\n    .then(response => response.json())\n    .then(data => {\n    react_dom_1.render(React.createElement(App_1.App, { setup: data.setup, delivery: data.delivery }), document.getElementById(\"app\"));\n});\n\n\n//# sourceURL=webpack:///./src/components/index.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_dom_1 = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\nconst App_1 = __webpack_require__(/*! ./App */ \"./src/client/App.tsx\");\n// import store from './store';\nconst url = 'https://sv443.net/jokeapi/v2/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist&type=twopart';\nlet joke;\nfetch(url)\n    .then(response => response.json())\n    .then(data => {\n    joke = {\n        setup: data.setup,\n        delivery: data.delivery,\n    };\n    react_dom_1.render(React.createElement(App_1.App, { setup: data.setup, delivery: data.delivery }), document.getElementById(\"app\"));\n});\n// button listener\n// fetch to post to same endpoint\n\n\n//# sourceURL=webpack:///./src/client/index.tsx?");
 
 /***/ })
 
