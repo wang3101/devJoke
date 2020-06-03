@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "ES6",
+    "outDir": "ts-built",
+    "rootDir": "src",
+    "noImplicitAny": true,
+    "allowJs": true,
+    "jsx": "react",
+    },
+    "include": [
+      "./src/**/**/\*"
+    ],
+  "compileOnSave": true,
+}
