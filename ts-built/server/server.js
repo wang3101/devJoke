@@ -26,6 +26,10 @@ app.post('/jokes', jokeController_1.default.createJoke, (req, res) => {
     console.log('Here is your submission:     ', req);
     res.sendStatus(200);
 });
+// get all middleware to the /jokes/getall route
+app.get('/jokes/getall', jokeController_1.default.getAllJokes, (req, res) => {
+    res.status(200).json(res.locals.joke);
+});
 app.get('/jokes/:setup', jokeController_1.default.getJoke, (req, res) => {
     res.send(res.locals.joke);
 });

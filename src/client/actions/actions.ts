@@ -25,4 +25,13 @@ export const saveJoke = (joke: any) => {
       });
     });
   };
+  // export const getAllJokes = () => {
+  //   return (dispatch: any) => {
+  //     axios.get('http://localhost:3000/jokes/getall').then((response) => {
+  //       dispatch({
+  //         type: types.SAVE_JOKE,
+  //         payload: response.data,
+  //       });
+  //     });
+  //   };
 };

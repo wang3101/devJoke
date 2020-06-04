@@ -5,6 +5,7 @@ const jokeModels_1 = require("../models/jokeModels");
 class jokeController {
     constructor() {
         this.createJoke = this.createJoke.bind(this);
+        this.getAllJokes = this.getAllJokes.bind(this);
         this.getJoke = this.getJoke.bind(this);
         this.removeJoke = this.removeJoke.bind(this);
     }
@@ -13,6 +14,15 @@ class jokeController {
             if (err) {
                 return next(err);
             }
+            return next();
+        });
+    }
+    getAllJokes(req, res, next) {
+        jokeModels_1.default.find({}, (err, joke) => {
+            if (err) {
+                return next(err);
+            }
+            res.locals.joke = joke;
             return next();
         });
     }

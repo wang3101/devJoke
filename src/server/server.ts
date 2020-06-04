@@ -31,9 +31,9 @@ app.post('/jokes', jokeController.createJoke, (req, res) => {
 });
 
 // get all middleware to the /jokes/getall route
-// app.get('/jokes/:setup', jokeController.getJoke, (req, res) => {
-//   res.send(res.locals.joke);
-// });
+app.get('/jokes/getall', jokeController.getAllJokes, (req, res) => {
+  res.status(200).json(res.locals.joke);
+});
 
 app.get('/jokes/:setup', jokeController.getJoke, (req, res) => {
   res.send(res.locals.joke);
