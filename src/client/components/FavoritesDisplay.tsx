@@ -17,7 +17,7 @@ const FavoritesDisplay = (props: any) => {
     );
   }
   return (
-    <div className="displayBox">
+    <div className="favoritesBox">
       <h4>Here are your favorites:</h4>
       {allFavorites}
     </div>

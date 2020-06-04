@@ -30,25 +30,35 @@ app.post('/jokes', jokeController.createJoke, (req, res) => {
   res.sendStatus(200);
 });
 
-// get all middleware to the /jokes/getall route
-app.get('/jokes/getall', jokeController.getAllJokes, (req, res) => {
-  res.status(200).json(res.locals.joke);
-});
-
-app.get('/jokes/:setup', jokeController.getJoke, (req, res) => {
-  res.send(res.locals.joke);
-});
-
-app.delete('/jokes/:setup', jokeController.removeJoke, (req, res) => {
-  res.sendStatus(200);
-});
-
+// Root route works
 app.get('/', (req, res) => {
   res.send('Made it');
 });
 
-// need to match endpoint with the front end
-// app.post('/joke', middlewareToSave into db, (req, res))
+// Grab all jokes in the db
+app.get('/jokes/getall', jokeController.getAllJokes, (req, res) => {
+  res.status(200).json(res.locals.joke);
+});
+
+// Drop all collections in the db
+app.delete('/jokes/removeall', jokeController.removeAllJokes, (req, res) => {
+  res.sendStatus(200);
+});
+
+// Grab joke based on id
+app.get('/jokes/:setup', jokeController.getJoke, (req, res) => {
+  res.send(res.locals.joke);
+});
+
+// Delete joke based on id
+app.delete('/jokes/:setup', jokeController.removeJoke, (req, res) => {
+  res.sendStatus(200);
+});
+
+// Route does not exist
+app.get('*', (req, res) => {
+  res.send('Page does not exist');
+});
 
 // For potentially deploying into one folder
 // app.use(express.static('dist'));
@@ -57,5 +67,3 @@ app.get('/', (req, res) => {
 // });
 
 app.listen(port);
-
-// module.exports = app;

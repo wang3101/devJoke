@@ -15,6 +15,7 @@ const MainContainer = () => {
     <div className="container">
       <div className="outerBox">
         <h1 id="header">Curated Programming Jokes Just for You!</h1>
+        <h4>Save this for later or get a new joke!</h4>
       </div>
       <JokesContainer />
     </div>

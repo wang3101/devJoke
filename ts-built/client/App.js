@@ -1,29 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
-const react_1 = require("react");
-// import ReduxThunk from 'redux-thunk';
 const MainContainer_1 = require("./containers/MainContainer");
-// const ReduxThunk = window.ReduxThunk.default;
-// export interface JokeProps {
-//   setup: string,
-//   delivery: string,
-// };
-// export const App = (props: JokeProps) => (
-//   <h1>
-//     {props.setup}<br/>
-//     {props.delivery}
-//   </h1>
-// )
-class App extends react_1.Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        console.log('this is the main app');
-        return (React.createElement("div", null,
-            React.createElement(MainContainer_1.default, null)));
-    }
-}
+const App = () => {
+    return (React.createElement("div", null,
+        React.createElement(MainContainer_1.default, null)));
+};
 exports.default = App;
 //# sourceMappingURL=App.js.map

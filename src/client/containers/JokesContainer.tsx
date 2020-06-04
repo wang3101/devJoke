@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { Component } from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import * as actions from '../actions/actions';
-import { render } from 'react-dom';
 import JokesDisplay from '../components/JokesDisplay';
+import FavoritesDisplay from '../components/FavoritesDisplay';
 
 const mapStateToProps = (state: { setup: string; delivery: string }) => ({
   setup: state.setup,
@@ -17,6 +16,12 @@ const mapDispatchToProps = (dispatch: any) => ({
   saveJoke: (joke: any) => {
     dispatch(actions.saveJoke(joke));
   },
+  getAllJokes: () => {
+    dispatch(actions.getAllJokes());
+  },
+  removeAllJokes: () => {
+    dispatch(actions.removeAllJokes());
+  },
 });
 
 const JokesContainer = (props: any) => {
@@ -25,38 +30,32 @@ const JokesContainer = (props: any) => {
   // const delivery = useSelector((state) => state.delivery);
   return (
     <>
-      <JokesDisplay jokes={state} />
-      <button
-        type="button"
-        onClick={() => {
-          props.newJoke();
-        }}
-      >
-        New Joke!
-      </button>
-      <button type="button" onClick={() => props.saveJoke(state)}>
-        Save Joke for Later!
-      </button>
+      <div className="outerBox">
+        <JokesDisplay jokes={state} />
+        <button
+          type="button"
+          onClick={() => {
+            props.newJoke();
+          }}
+        >
+          New Joke!
+        </button>
+        <button type="button" onClick={() => props.saveJoke(state)}>
+          Save Joke for Later!
+        </button>
+        <br></br>
+        <br></br>
+        <button type="button" onClick={() => props.getAllJokes()}>
+          Show Favorites!
+        </button>
+        <button id="deleteButton" type="button" onClick={() => props.removeAllJokes()}>
+          Delete Favorites!
+        </button>
+      </div>
+
+      <FavoritesDisplay jokes={state} />
     </>
   );
 };
-
-// class JokesContainer extends Component {
-//   render() {
-//     console.log('jokes container props', this.props);
-//     return (
-//       <div className="innerbox">
-//         <JokesDisplay jokes={this.props} />
-//         <button type="button" onClick={this.props.newJoke}>
-//           New Joke!
-//         </button>
-//         {/* <button type="button" onClick={() => saveJoke(this.props)}>
-//           Save Joke for Later!
-//         </button> */}
-//         {/* <button type="button">Show favorites</button> */}
-//       </div>
-//     );
-//   }
-// }
 
 export default connect(mapStateToProps, mapDispatchToProps)(JokesContainer);

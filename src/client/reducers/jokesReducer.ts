@@ -3,19 +3,17 @@ import * as types from '../constants/actionTypes';
 interface IState {
   setup: string;
   delivery: string;
-  // favorites: any;
+  favorites: any;
 }
 
 const initialState: IState = {
   setup: 'Want to hear a joke?',
   delivery: 'Click New Joke!',
-  // favorites: [];
+  favorites: [],
 };
 
-// took out string here because typescript knows its a string already
-
 const jokesReducer = (state = initialState, action: any) => {
-  // console.log(state);
+  const favorites: any = [];
   switch (action.type) {
     case types.NEW_JOKE:
       return {
@@ -28,11 +26,21 @@ const jokesReducer = (state = initialState, action: any) => {
       return {
         ...state,
       };
-    // case types.GET_ALL_JOKES:
-    //   console.log('Getting All Jokes....');
-    //   return {
-    //     ...state,
-    //   };
+    case types.GET_ALL_JOKES:
+      console.log('Getting All Jokes....');
+      action.payload.forEach((obj: any) => {
+        favorites.push({ setup: obj['setup'], delivery: obj['delivery'] });
+      });
+      return {
+        ...state,
+        favorites,
+      };
+    case types.REMOVE_ALL_JOKES:
+      console.log('Removing All Jokes....');
+      return {
+        ...state,
+        favorites,
+      };
     default:
       return state;
   }

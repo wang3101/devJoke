@@ -1,8 +1,6 @@
-import * as request from 'request';
-import Favorite from '../models/jokeModels';
 import { Router, Request, Response, NextFunction } from 'express';
+import Favorite from '../models/jokeModels';
 
-// const models = require('../models/jokesModels')
 class jokeController {
   constructor() {
     this.createJoke = this.createJoke.bind(this);
@@ -19,6 +17,7 @@ class jokeController {
     });
   }
   getAllJokes(req: Request, res: Response, next: NextFunction) {
+    console.log('Im getting jokes now');
     Favorite.find({}, (err: any, joke: any) => {
       if (err) {
         return next(err);
@@ -40,6 +39,15 @@ class jokeController {
   }
   removeJoke(req: Request, res: Response, next: NextFunction) {
     Favorite.deleteOne(req.params, (err: any) => {
+      if (err) {
+        return next(err);
+      }
+      return next();
+    });
+  }
+  removeAllJokes(req: Request, res: Response, next: NextFunction) {
+    console.log('Im removing jokes now');
+    Favorite.deleteMany({}, (err: any) => {
       if (err) {
         return next(err);
       }

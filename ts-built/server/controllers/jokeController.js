@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const jokeModels_1 = require("../models/jokeModels");
-// const models = require('../models/jokesModels')
 class jokeController {
     constructor() {
         this.createJoke = this.createJoke.bind(this);
@@ -18,6 +17,7 @@ class jokeController {
         });
     }
     getAllJokes(req, res, next) {
+        console.log('Im getting jokes now');
         jokeModels_1.default.find({}, (err, joke) => {
             if (err) {
                 return next(err);
@@ -37,6 +37,15 @@ class jokeController {
     }
     removeJoke(req, res, next) {
         jokeModels_1.default.deleteOne(req.params, (err) => {
+            if (err) {
+                return next(err);
+            }
+            return next();
+        });
+    }
+    removeAllJokes(req, res, next) {
+        console.log('Im removing jokes now');
+        jokeModels_1.default.deleteMany({}, (err) => {
             if (err) {
                 return next(err);
             }

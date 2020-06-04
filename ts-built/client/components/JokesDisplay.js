@@ -1,16 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
+// import { useDispatch } from 'react-redux';
+// import
+// props {setup: string, delivery: string, favorites: []}
+// interface IProps {
+//   setup: string;
+//   delivery: string;
+//   favorites?: Array<IState>;
+// }
+// interface IState {
+//   setup: string;
+//   delivery: string;
+// }
 const JokesDisplay = (props) => {
-    console.log(props.jokes);
     return (React.createElement("div", { className: "displayBox" },
         React.createElement("h4", null, "Save this for later or get a new joke!"),
-        React.createElement("p", null,
-            "Hello",
-            props.jokes.setup),
-        React.createElement("p", null, props.jokes.delivery),
-        React.createElement("button", { type: "button", onClick: () => props.jokes.newJoke() }, "New Joke!"),
-        React.createElement("button", { type: "button", onClick: () => props.jokes.saveJoke(props.jokes) }, "Save Joke for Later!")));
+        React.createElement("p", null, props.jokes.jokes.setup),
+        React.createElement("p", null, props.jokes.jokes.delivery)));
 };
 exports.default = JokesDisplay;
 //# sourceMappingURL=JokesDisplay.js.map

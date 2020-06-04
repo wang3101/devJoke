@@ -24,13 +24,24 @@ export const saveJoke = (joke: any) => {
       });
     });
   };
-  // export const getAllJokes = () => {
-  //   return (dispatch: any) => {
-  //     axios.get('http://localhost:3000/jokes/getall').then((response) => {
-  //       dispatch({
-  //         type: types.SAVE_JOKE,
-  //         payload: response.data,
-  //       });
-  //     });
-  //   };
+};
+export const getAllJokes = () => {
+  return (dispatch: any) => {
+    axios.get('http://localhost:3000/jokes/getall').then((response) => {
+      dispatch({
+        type: types.GET_ALL_JOKES,
+        payload: response.data,
+      });
+    });
+  };
+};
+export const removeAllJokes = () => {
+  return (dispatch: any) => {
+    axios.delete('http://localhost:3000/jokes/removeall').then((response) => {
+      dispatch({
+        type: types.REMOVE_ALL_JOKES,
+        payload: response.data,
+      });
+    });
+  };
 };

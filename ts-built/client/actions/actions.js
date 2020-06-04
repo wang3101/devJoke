@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.saveJoke = exports.newJoke = void 0;
+exports.removeAllJokes = exports.getAllJokes = exports.saveJoke = exports.newJoke = void 0;
 const axios_1 = require("axios");
 const types = require("../constants/actionTypes");
 // API payload and pass it to the reducer
@@ -16,11 +16,30 @@ exports.newJoke = () => {
     };
 };
 exports.saveJoke = (joke) => {
-    console.log('hello im here in the ave joke', joke);
     return (dispatch) => {
-        axios_1.default.post('http://localhost:3000/jokes', joke).then((response) => {
+        axios_1.default.post('http://localhost:3000/jokes', joke.jokes).then((response) => {
             dispatch({
                 type: types.SAVE_JOKE,
+                payload: response.data,
+            });
+        });
+    };
+};
+exports.getAllJokes = () => {
+    return (dispatch) => {
+        axios_1.default.get('http://localhost:3000/jokes/getall').then((response) => {
+            dispatch({
+                type: types.GET_ALL_JOKES,
+                payload: response.data,
+            });
+        });
+    };
+};
+exports.removeAllJokes = () => {
+    return (dispatch) => {
+        axios_1.default.delete('http://localhost:3000/jokes/removeall').then((response) => {
+            dispatch({
+                type: types.REMOVE_ALL_JOKES,
                 payload: response.data,
             });
         });

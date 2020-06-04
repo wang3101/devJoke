@@ -1,0 +1,52 @@
+* {
+}
+Body {
+  font-family: 'Corben', Georgia, Times, serif;
+  background: #f8f8ff;
+}
+
+.outerBox {
+  color: #303030;
+  margin: auto;
+  text-align: center;
+  width: 50%;
+}
+
+.displayBox {
+  font-family: Blippo, fantasy;
+  margin: auto;
+  text-align: center;
+  color: #606060;
+  font-size: 24px;
+}
+
+.favoritesBox {
+  margin: auto;
+  padding: 5% 10%;
+  color: #606060;
+  font-size: 18px;
+}
+
+button {
+  background-color: cyan;
+  border-radius: 8px;
+  font-size: 18px;
+  padding: 15px;
+  margin: 2% 5%;
+  cursor: pointer;
+  width: 40%;
+  box-shadow: 2px 1px #888888;
+}
+
+button:hover {
+  background-color: #afeeee;
+}
+
+#deleteButton:hover {
+  background-color: #ff7f50;
+}
+
+h4 {
+  color: #303030;
+  font-size: 20px;
+}

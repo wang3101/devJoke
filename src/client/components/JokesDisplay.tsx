@@ -17,7 +17,6 @@ import * as React from 'react';
 const JokesDisplay = (props: any) => {
   return (
     <div className="displayBox">
-      <h4>Save this for later or get a new joke!</h4>
       <p>{props.jokes.jokes.setup}</p>
       <p>{props.jokes.jokes.delivery}</p>
     </div>

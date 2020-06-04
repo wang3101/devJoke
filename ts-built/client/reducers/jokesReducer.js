@@ -2,19 +2,27 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const types = require("../constants/actionTypes");
 const initialState = {
-    setup: '',
-    delivery: '',
+    setup: 'Want to hear a joke?',
+    delivery: 'Click New Joke!',
+    favorites: [],
 };
-// took out string here because typescript knows its a string already
 const jokesReducer = (state = initialState, action) => {
+    const favorites = [];
     switch (action.type) {
         case types.NEW_JOKE:
-            console.log(action.payload.setup);
-            console.log(action.payload.delivery);
             return Object.assign(Object.assign({}, state), { setup: action.payload.setup, delivery: action.payload.delivery });
         case types.SAVE_JOKE:
             console.log('Saving Joke....');
             return Object.assign({}, state);
+        case types.GET_ALL_JOKES:
+            console.log('Getting All Jokes....');
+            action.payload.forEach((obj) => {
+                favorites.push({ setup: obj['setup'], delivery: obj['delivery'] });
+            });
+            return Object.assign(Object.assign({}, state), { favorites });
+        case types.REMOVE_ALL_JOKES:
+            console.log('Removing All Jokes....');
+            return Object.assign(Object.assign({}, state), { favorites });
         default:
             return state;
     }
