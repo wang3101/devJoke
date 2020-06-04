@@ -16,9 +16,8 @@ export const newJoke = () => {
 };
 
 export const saveJoke = (joke: any) => {
-  console.log('hello im here in the ave joke', joke);
   return (dispatch: any) => {
-    axios.post('http://localhost:3000/jokes', joke).then((response) => {
+    axios.post('http://localhost:3000/jokes', joke.jokes).then((response) => {
       dispatch({
         type: types.SAVE_JOKE,
         payload: response.data,

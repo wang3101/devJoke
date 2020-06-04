@@ -15,7 +15,7 @@ const initialState: IState = {
 // took out string here because typescript knows its a string already
 
 const jokesReducer = (state = initialState, action: any) => {
-  console.log(state);
+  // console.log(state);
   switch (action.type) {
     case types.NEW_JOKE:
       return {

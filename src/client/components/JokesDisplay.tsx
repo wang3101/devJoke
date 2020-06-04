@@ -15,7 +15,7 @@ import * as React from 'react';
 // }
 
 const JokesDisplay = (props: any) => {
-  console.log(props.jokes);
+  // console.log(props.jokes);
   // const dispatch = useDispatch()
   // Create favorites list. Wont't populate until button pressed
   // const allFavorites = [];
@@ -27,7 +27,6 @@ const JokesDisplay = (props: any) => {
   //     </div>,
   //   );
   // }
-  console.log('props from jokesdsiplay', props);
   return (
     <div className="displayBox">
       <h4>Save this for later or get a new joke!</h4>

@@ -21,8 +21,7 @@ const mapDispatchToProps = (dispatch: any) => ({
 
 const JokesContainer = (props: any) => {
   const state = useSelector((state) => state);
-  const dispatch = useDispatch();
-  console.log('setup: ', state);
+  // const dispatch = useDispatch();
   // const delivery = useSelector((state) => state.delivery);
   return (
     <>
@@ -35,7 +34,7 @@ const JokesContainer = (props: any) => {
       >
         New Joke!
       </button>
-      <button type="button" onClick={() => props.saveJoke(props.joke)}>
+      <button type="button" onClick={() => props.saveJoke(state)}>
         Save Joke for Later!
       </button>
     </>
