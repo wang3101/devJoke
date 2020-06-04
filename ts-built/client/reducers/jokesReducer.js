@@ -9,18 +9,12 @@ const initialState = {
 const jokesReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.NEW_JOKE:
+            console.log(action.payload.setup);
+            console.log(action.payload.delivery);
             return Object.assign(Object.assign({}, state), { setup: action.payload.setup, delivery: action.payload.delivery });
-        // Fetch from API to get the new joke
-        // fetch(url)
-        //   .then((response) => response.json())
-        //   .then((data) => {
-        //     setup = data.setup;
-        //     delivery = data.delivery;
-        //   });
-        // return {
-        //   setup,
-        //   delivery,
-        // };
+        case types.SAVE_JOKE:
+            console.log('Saving Joke....');
+            return Object.assign({}, state);
         default:
             return state;
     }

@@ -15,6 +15,7 @@ class MainContainer extends Component {
     super(props);
   }
   render() {
+    console.log('This is the main container');
     return (
       <div className="container">
         <div className="outerBox">

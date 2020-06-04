@@ -14,6 +14,7 @@ class MainContainer extends react_1.Component {
         super(props);
     }
     render() {
+        console.log('This is the main container');
         return (React.createElement("div", { className: "container" },
             React.createElement("div", { className: "outerBox" },
                 React.createElement("h1", { id: "header" }, "Curated Programming Jokes Just for You!")),

@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { Component } from 'react';
+// import ReduxThunk from 'redux-thunk';
 import Wrapper from './containers/MainContainer';
 
+// const ReduxThunk = window.ReduxThunk.default;
 // export interface JokeProps {
 //   setup: string,
 //   delivery: string,
@@ -19,6 +21,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('this is the main app');
     return (
       <div>
         <Wrapper />

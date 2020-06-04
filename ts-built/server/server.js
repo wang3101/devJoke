@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const jokeController_1 = require("./controllers/jokeController");
 // Mongo URL to connect to the Cloud DB
 const MONGO_URI = 'mongodb+srv://wang3101:codesmith@cluster0-9clij.mongodb.net/test?retryWrites=true&w=majority';
@@ -20,7 +21,9 @@ const app = express();
 const port = 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 app.post('/jokes', jokeController_1.default.createJoke, (req, res) => {
+    console.log('Here is your submission:     ', req);
     res.sendStatus(200);
 });
 app.get('/jokes/:setup', jokeController_1.default.getJoke, (req, res) => {

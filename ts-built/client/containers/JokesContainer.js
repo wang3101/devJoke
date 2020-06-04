@@ -13,16 +13,13 @@ const mapDispatchToProps = (dispatch) => ({
     newJoke: () => {
         dispatch(actions.newJoke());
     },
+    saveJoke: (joke) => {
+        dispatch(actions.saveJoke(joke));
+    },
 });
-// const JokesContainer = () => {
-//   render(){
-//     return (
-//       <div className="innerbox"></div>
-//     )
-//   }
-// }
 class JokesContainer extends react_1.Component {
     render() {
+        console.log('jokes container props', this.props);
         return (React.createElement("div", { className: "innerbox" },
             React.createElement(JokesDisplay_1.default, { jokes: this.props })));
     }
