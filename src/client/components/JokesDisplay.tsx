@@ -1,7 +1,22 @@
 import * as React from 'react';
+// import { useDispatch } from 'react-redux';
+// import
+// props {setup: string, delivery: string, favorites: []}
+
+// interface IProps {
+//   setup: string;
+//   delivery: string;
+//   favorites?: Array<IState>;
+// }
+
+// interface IState {
+//   setup: string;
+//   delivery: string;
+// }
 
 const JokesDisplay = (props: any) => {
   console.log(props.jokes);
+  // const dispatch = useDispatch()
   // Create favorites list. Wont't populate until button pressed
   // const allFavorites = [];
   // for (let i = 0; i < props.favorites.length; i++) {
@@ -12,18 +27,13 @@ const JokesDisplay = (props: any) => {
   //     </div>,
   //   );
   // }
+  console.log('props from jokesdsiplay', props);
   return (
     <div className="displayBox">
       <h4>Save this for later or get a new joke!</h4>
-      <p>Hello{props.jokes.setup}</p>
-      <p>{props.jokes.delivery}</p>
-      <button type="button" onClick={() => props.jokes.newJoke()}>
-        New Joke!
-      </button>
-      <button type="button" onClick={() => props.jokes.saveJoke(props.jokes)}>
-        Save Joke for Later!
-      </button>
-      <button type="button">Show favorites</button>
+      <p>{props.jokes.jokes.setup}</p>
+      <p>{props.jokes.jokes.delivery}</p>
+      {/* <button type="button">Show favorites</button> */}
       {/* {allFavorites} */}
     </div>
   );

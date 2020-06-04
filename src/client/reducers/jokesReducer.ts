@@ -7,18 +7,17 @@ interface IState {
 }
 
 const initialState: IState = {
-  setup: '',
-  delivery: '',
+  setup: 'Want to hear a joke?',
+  delivery: 'Click New Joke!',
   // favorites: [];
 };
 
 // took out string here because typescript knows its a string already
 
 const jokesReducer = (state = initialState, action: any) => {
+  console.log(state);
   switch (action.type) {
     case types.NEW_JOKE:
-      console.log(action.payload.setup);
-      console.log(action.payload.delivery);
       return {
         ...state,
         setup: action.payload.setup,

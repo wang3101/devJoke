@@ -1,30 +1,24 @@
 import * as React from 'react';
-import { Component } from 'react';
-import { connect } from 'react-redux';
+// import { Component } from 'react';
+// import { connect } from 'react-redux';
 import JokesContainer from './JokesContainer';
 
-const mapStateToProps = (state: any) => ({
-  setup: state.setup,
-  delivery: state.delivery,
-});
+// const mapStateToProps = (state: any) => ({
+//   setup: state.setup,
+//   delivery: state.delivery,
+// });
 
-const mapDispatchToProps = (dispatch: any) => ({});
+// const mapDispatchToProps = (dispatch: any) => ({});
 
-class MainContainer extends Component {
-  constructor(props: any) {
-    super(props);
-  }
-  render() {
-    console.log('This is the main container');
-    return (
-      <div className="container">
-        <div className="outerBox">
-          <h1 id="header">Curated Programming Jokes Just for You!</h1>
-        </div>
-        <JokesContainer />
+const MainContainer = () => {
+  return (
+    <div className="container">
+      <div className="outerBox">
+        <h1 id="header">Curated Programming Jokes Just for You!</h1>
       </div>
-    );
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
+      <JokesContainer />
+    </div>
+  );
+};
+export default MainContainer;
+// export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
